@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.13)
+project(Xgame)
+
+set(CMAKE_CXX_STANDARD 17)
+
+include_directories(../ultralight/include)
+
+add_executable(Xgame main.cpp field/Field.cpp field/Field.h field/Cell.cpp field/Cell.h unit/Unit.cpp unit/Unit.h impediment/Impediment.cpp impediment/Impediment.h)
