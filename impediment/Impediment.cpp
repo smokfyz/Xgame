@@ -4,4 +4,11 @@
 
 #include "Impediment.h"
 
-unsigned const Impediment::getPermeability() { return permeability; }
+Impediment::Impediment(unsigned perm) : permeability(perm) {}
+
+unsigned Impediment::getPermeability() const { return permeability; }
+
+ostream &operator<<(ostream &os, const Impediment &imp) {
+    os << imp.getPermeability();
+    return os;
+}

@@ -8,13 +8,13 @@
 #include <vector>
 #include "Cell.h"
 
-#define DEFAULT_FIELD_SIZE 100
+#define DEFAULT_FIELD_SIZE 25
 
 using namespace std;
 
 class Field {
     unsigned const field_size;
-    vector<vector<Cell>> content;
+    vector<vector<shared_ptr<Cell>>> content;
 
     void fillContent();
 

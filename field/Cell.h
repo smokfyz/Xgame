@@ -16,6 +16,9 @@ class Cell {
     unique_ptr<Unit> unit;
 
 public:
+    explicit Cell(unique_ptr<Impediment> && = make_unique<Impediment>(),
+         unique_ptr<Unit> && = make_unique<Unit>());
+
     Impediment const &getImpediment();
 
     Unit const &getUnit();
