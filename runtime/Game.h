@@ -8,10 +8,12 @@
 #include <vector>
 #include "../field/Field.h"
 #include "../player/Player.h"
+#include "../gui/GUI.h"
 
 using namespace std;
 
 class Game {
+    unique_ptr<GUI> gui;
     unique_ptr<Field> field;
     vector<shared_ptr<Player>> players;
     unsigned current_turn;
@@ -22,6 +24,8 @@ public:
     Field &getField();
 
     void addPlayer(shared_ptr<Player> &);
+
+    void run();
 };
 
 
