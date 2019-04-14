@@ -11,6 +11,12 @@ Game::Game() {
     current_turn = 0;
 }
 
+Game &Game::getGame() {
+    static Game instance;
+
+    return instance;
+}
+
 Field &Game::getField() { return *field; }
 
 void Game::addPlayer(shared_ptr<Player> &player) {

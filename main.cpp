@@ -12,12 +12,10 @@ using namespace ultralight;
 int main() {
 
 
-    shared_ptr<Player> p1 = make_shared<Player>();
-    shared_ptr<Player> p2 = make_shared<Player>();
+    //shared_ptr<Player> p1 = make_shared<Player>();
+    //shared_ptr<Player> p2 = make_shared<Player>();
 
-    Game game = Game();
-
-    Field &game_field = game.getField();
+    Game &game = Game::getGame();
 
     game.run();
 

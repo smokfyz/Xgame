@@ -13,18 +13,21 @@
 using namespace std;
 
 class Game {
+    Game();
+
     unique_ptr<GUI> gui;
     unique_ptr<Field> field;
     vector<shared_ptr<Player>> players;
     unsigned current_turn;
 
 public:
-    Game();
+    Game(Game const&)            = delete;
+    void operator=(Game const&)  = delete;
+
+    static Game &getGame();
 
     Field &getField();
-
     void addPlayer(shared_ptr<Player> &);
-
     void run();
 };
 

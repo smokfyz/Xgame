@@ -4,9 +4,9 @@
 
 #include "UI.h"
 
-static UI* g_ui = 0;
+static UI* g_ui = nullptr;
 
-#define UI_HEIGHT 79
+#define UI_HEIGHT 71
 
 UI::UI(Ref<Window> window) : window_(window) {
     int window_width = App::instance()->window()->width();

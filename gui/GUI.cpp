@@ -1,20 +1,19 @@
 //
 // Created by smokfyz on 14.04.19.
 //
-
-#include "GUI.h"
+#include <iostream>
 #include <Ultralight/platform/Platform.h>
 #include <Ultralight/platform/Config.h>
 #include <Ultralight/Renderer.h>
-
+#include "GUI.h"
 using namespace std;
 
-GUI::GUI()  {
+GUI::GUI() {
     app_ = App::Create();
 
     window_ = Window::Create(app_->main_monitor(), 1024, 768, false,
                              kWindowFlags_Resizable | kWindowFlags_Titled | kWindowFlags_Maximizable);
-    window_->SetTitle("Ultralight Sample - Browser");
+    window_->SetTitle("Xgame");
     app_->set_window(*(window_.get()));
 
     // Create the UI

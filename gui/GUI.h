@@ -12,16 +12,15 @@ using namespace ultralight;
 
 
 class GUI {
+    RefPtr<App> app_;
+    RefPtr<Window> window_;
+    std::unique_ptr<UI> ui_;
+
 public:
     GUI();
     virtual ~GUI();
 
     virtual void run();
-
-protected:
-    RefPtr<App> app_;
-    RefPtr<Window> window_;
-    std::unique_ptr<UI> ui_;
 };
 
 
