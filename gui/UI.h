@@ -33,7 +33,7 @@ public:
     virtual void OnDOMReady(View* caller) override;
 
     // Called by UI JavaScript
-    void OnBack(const JSObject& obj, const JSArgs& args);
+    void OnPickHex(const JSObject& obj, const JSArgs& args);
     void OnForward(const JSObject& obj, const JSArgs& args);
     void OnRefresh(const JSObject& obj, const JSArgs& args);
     void OnStop(const JSObject& obj, const JSArgs& args);
@@ -43,7 +43,7 @@ public:
     void OnRequestChangeURL(const JSObject& obj, const JSArgs& args);
 
 protected:
-    void CreateNewTab();
+    void CreateField();
     void UpdateTabTitle(uint64_t id, const String& title);
     void UpdateTabURL(uint64_t id, const String& url);
     void UpdateTabNavigation(uint64_t id, bool is_loading, bool can_go_back, bool can_go_forward);
@@ -67,6 +67,10 @@ protected:
     std::map<uint64_t, std::unique_ptr<Tab>> tabs_;
     uint64_t active_tab_id_ = 0;
     uint64_t tab_id_counter_ = 0;
+
+    uint64_t active_hex_id_ = 0;
+    uint64_t hex_id_counter_ = 0;
+
     Cursor cur_cursor_;
 
     JSFunction updateBack;

@@ -2,19 +2,19 @@
 // Created by smokfyz on 12.04.19.
 //
 
+#include "../runtime/Game.h"
 #include "UI.h"
 
-static UI* g_ui = nullptr;
-
-#define UI_HEIGHT 71
+static UI *g_ui = nullptr;
 
 UI::UI(Ref<Window> window) : window_(window) {
     int window_width = App::instance()->window()->width();
-    overlay_ = Overlay::Create(window_, window_width, UI_HEIGHT, 0, 0);
+    int window_height = App::instance()->window()->height();
+    overlay_ = Overlay::Create(window_, window_width, window_height, 0, 0);
     g_ui = this;
 
     view()->set_load_listener(this);
-    view()->LoadURL("file:///ui.html");
+    view()->LoadURL("file:///field.html");
 }
 
 UI::~UI() {
@@ -27,12 +27,7 @@ void UI::OnClose() {
 
 void UI::OnResize(int width, int height) {
     RefPtr<Window> window = App::instance()->window();
-    int tab_height = window->height() - UI_HEIGHT;
-    overlay_->Resize(window->width(), UI_HEIGHT);
-    for (auto& tab : tabs_) {
-        if (tab.second)
-            tab.second->Resize(window->width(), tab_height);
-    }
+    overlay_->Resize(window->width(), window->height());
 }
 
 void UI::OnDOMReady(ultralight::View* caller) {
@@ -40,7 +35,8 @@ void UI::OnDOMReady(ultralight::View* caller) {
     SetJSContext(view()->js_context());
 
     JSObject global = JSGlobalObject();
-    updateBack = global["updateBack"];
+
+    /*updateBack = global["updateBack"];
     updateForward = global["updateForward"];
     updateLoading = global["updateLoading"];
     updateURL = global["updateURL"];
@@ -56,13 +52,15 @@ void UI::OnDOMReady(ultralight::View* caller) {
     global["OnRequestTabClose"] = BindJSCallback(&UI::OnRequestTabClose);
     global["OnActiveTabChange"] = BindJSCallback(&UI::OnActiveTabChange);
     global["OnRequestChangeURL"] = BindJSCallback(&UI::OnRequestChangeURL);
+*/
+    CreateField();
 
-    CreateNewTab();
+    global["OnPickHex"] = BindJSCallback(&UI::OnPickHex);
+
 }
 
-void UI::OnBack(const JSObject& obj, const JSArgs& args) {
-    if (active_tab())
-        active_tab()->view()->GoBack();
+void UI::OnPickHex(const JSObject& obj, const JSArgs& args) {
+
 }
 
 void UI::OnForward(const JSObject& obj, const JSArgs& args) {
@@ -81,7 +79,6 @@ void UI::OnStop(const JSObject& obj, const JSArgs& args) {
 }
 
 void UI::OnRequestNewTab(const JSObject& obj, const JSArgs& args) {
-    CreateNewTab();
 }
 
 void UI::OnRequestTabClose(const JSObject& obj, const JSArgs& args) {
@@ -149,13 +146,17 @@ void UI::OnRequestChangeURL(const JSObject& obj, const JSArgs& args) {
     }
 }
 
-void UI::CreateNewTab() {
+void UI::CreateField() {
+
+    Game &game = Game::getGame();
+    Field &field = game.getField();
+/*
     uint64_t id = tab_id_counter_++;
     RefPtr<Window> window = App::instance()->window();
-    tabs_[id].reset(new Tab(this, id, window->width(), window->height() - UI_HEIGHT, 0, UI_HEIGHT));
+    tabs_[id].reset(new Tab(this, id, window->width(), window->height() - 71, 0, 71));
     tabs_[id]->view()->LoadURL("file:///new_tab_page.html");
 
-    addTab({ id, "New Tab", "" });
+    addTab({ id, "New Tab", "" });*/
 }
 
 void UI::UpdateTabTitle(uint64_t id, const ultralight::String& title) {

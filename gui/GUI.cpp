@@ -11,7 +11,7 @@ using namespace std;
 GUI::GUI() {
     app_ = App::Create();
 
-    window_ = Window::Create(app_->main_monitor(), 1024, 768, false,
+    window_ = Window::Create(app_->main_monitor(), 1280, 720, false,
                              kWindowFlags_Resizable | kWindowFlags_Titled | kWindowFlags_Maximizable);
     window_->SetTitle("Xgame");
     app_->set_window(*(window_.get()));

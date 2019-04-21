@@ -21,6 +21,8 @@ class Field {
 public:
     explicit Field(unsigned = DEFAULT_FIELD_SIZE);
 
+    vector<shared_ptr<Cell>> &operator[](int);
+
     unsigned const getSize();
 
     void print();
