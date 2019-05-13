@@ -6,28 +6,29 @@
 #define XGAME_PLAYER_H
 
 #include <memory>
+#include <string>
+#include <vector>
+#include "../field/Cell.h"
 
 using namespace std;
-
-class Game;
-class Cell;
 
 class Player {
     static unsigned player_num;
     unsigned player_id;
-    shared_ptr<Game> game;
-    shared_ptr<Cell> selected_cell;
+    string name;
+    string color;
+
+    vector<shared_ptr<Unit>> units;
 
 public:
-    Player();
-
-    virtual ~Player();
+    explicit Player(string &&, string &&);
+    virtual ~Player() = default;
 
     unsigned getId();
+    string getName();
 
-    void setCell(shared_ptr<Cell> &new_cell) {
-        selected_cell = new_cell;
-    }
+    void addUnit(shared_ptr<Unit> &);
+    bool hasUnit(shared_ptr<Unit> &);
 };
 
 

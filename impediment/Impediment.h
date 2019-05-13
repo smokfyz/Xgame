@@ -5,19 +5,30 @@
 #ifndef XGAME_IMPEDIMENT_H
 #define XGAME_IMPEDIMENT_H
 
-#include <iostream>
+#include <vector>
+#include "../field/Cell.h"
 
 using namespace std;
 
 class Impediment {
+
+protected:
+    string type_name;
     unsigned permeability;
+    float probability;
+    vector<shared_ptr<Cell>> filled;
 
 public:
-    explicit Impediment(unsigned = 100);
+    virtual ~Impediment() = default;
 
+    string getTypeName() const;
     unsigned getPermeability() const;
+    float getProbability() const;
+    vector<shared_ptr<Cell>> const &getFilled() const;
 
-    friend ostream &operator<<(ostream &, const Impediment &);
+    virtual void update() = 0;
+    virtual void generate() = 0;
+
 };
 
 

@@ -10,277 +10,31 @@
 <body>
 
     <div class="top-bar-info">
-
+        <div class="current-turn-info">
+            <div id="current-turn-info">Current turn: Player 1</div>
+            <div id="num-of-moves-info">Number of moves: 0</div>
+        </div>
+        <div class="next-turn-info">
+            <button onclick="OnNextTurn()" class="next-turn-btn">Next turn</button>
+            <button onclick="OnNextTurn()" class="next-turn-btn">New Game</button>
+            <button onclick="OnNextTurn()" class="next-turn-btn">Change Unit Position</button>
+        </div>
     </div>
 
     <div class="field">
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
-        <div class="hexagon-row">
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-            <div class="hexagon"></div>
-        </div>
     </div>
+
     <div class="menu">
-        <div class="picked-hex-info">
+        <div class="picked-hex-info" id="picked-hex-info">
             <h4>Picked hex info</h4>
-            <p>Impediment: Wind</p>
-            <p>Unit: Warrior (Human)</p>
+            <p id="picked-hex-info-imp">Impediment: Wind</p>
         </div>
-        <div class="picked-hex-info">
-            <h4>Picked target hex info</h4>
-            <p>Impediment: Wind</p>
-            <p>Unit: Warrior (Human)</p>
+        <div class="picked-hex-info" id="picked-unit-info">
+            <h4>Picked Unit info</h4>
+            <p>Attack: 10</p>
+            <p>Attack Type: 0</p>
+            <p>Health: 100/100</p>
+            <p>Energy: 100/100</p>
         </div>
         <div class="pass-info">
             <h4>Information about the way</h4>

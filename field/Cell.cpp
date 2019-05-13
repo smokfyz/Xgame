@@ -3,10 +3,15 @@
 //
 
 #include "Cell.h"
+#include "../gui/UI.h"
+#include "../runtime/Game.h"
 
-Cell::Cell(unique_ptr<Impediment> &&imp, unique_ptr<Unit> &&unit) : imp(move(imp)), unit(move(unit)) {}
+Cell::Cell(unsigned x, unsigned y) : x(x), y(y) {}
 
-Impediment const &Cell::getImpediment() { return *imp; }
+unsigned Cell::getX() const { return x; }
+unsigned Cell::getY() const { return y; }
 
-Unit const &Cell::getUnit() { return *unit; }
+shared_ptr<Unit> Cell::getUnit() { return unit; }
+void Cell::setUnit(shared_ptr<Unit> new_unit) { unit.swap(new_unit); }
 
+vector<shared_ptr<Cell>> &Cell::getReachable() { return reachable; }

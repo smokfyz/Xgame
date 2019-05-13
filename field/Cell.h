@@ -6,22 +6,28 @@
 #define XGAME_CELL_H
 
 #include <memory>
-#include "../impediment/Impediment.h"
+#include <vector>
 #include "../unit/Unit.h"
 
 using namespace std;
 
+class Impediment;
+
 class Cell {
-    unique_ptr<Impediment> imp;
-    unique_ptr<Unit> unit;
+    unsigned x, y;
+    shared_ptr<Unit> unit;
+    vector<shared_ptr<Cell>> reachable;
 
 public:
-    explicit Cell(unique_ptr<Impediment> && = make_unique<Impediment>(),
-         unique_ptr<Unit> && = make_unique<Unit>());
+    explicit Cell(unsigned x, unsigned y);
 
-    Impediment const &getImpediment();
+    unsigned getX() const;
+    unsigned getY() const;
 
-    Unit const &getUnit();
+    shared_ptr<Unit> getUnit();
+    void setUnit(shared_ptr<Unit>);
+
+    vector<shared_ptr<Cell>> &getReachable();
 };
 
 

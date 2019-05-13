@@ -4,11 +4,10 @@
 
 #include "Impediment.h"
 
-Impediment::Impediment(unsigned perm) : permeability(perm) {}
-
 unsigned Impediment::getPermeability() const { return permeability; }
 
-ostream &operator<<(ostream &os, const Impediment &imp) {
-    os << imp.getPermeability();
-    return os;
-}
+string Impediment::getTypeName() const { return type_name; }
+
+float Impediment::getProbability() const { return probability; }
+
+vector<shared_ptr<Cell>> const& Impediment::getFilled() const { return filled; }

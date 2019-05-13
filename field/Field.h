@@ -6,9 +6,9 @@
 #define XGAME_FIELD_H
 
 #include <vector>
-#include "Cell.h"
+#include "../field/Cell.h"
 
-#define DEFAULT_FIELD_SIZE 25
+#define DEFAULT_FIELD_SIZE 20
 
 using namespace std;
 
@@ -21,11 +21,10 @@ class Field {
 public:
     explicit Field(unsigned = DEFAULT_FIELD_SIZE);
 
-    vector<shared_ptr<Cell>> &operator[](int);
+    unsigned getSize() const;
 
-    unsigned const getSize();
+    vector<shared_ptr<Cell>> &operator[](int idx);
 
-    void print();
 };
 
 

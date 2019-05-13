@@ -6,6 +6,7 @@
 #include <Ultralight/platform/Config.h>
 #include <Ultralight/Renderer.h>
 #include "GUI.h"
+
 using namespace std;
 
 GUI::GUI() {
