@@ -6,6 +6,7 @@
 #define XGAME_IMPEDIMENT_H
 
 #include <vector>
+#include <algorithm>
 #include "../field/Cell.h"
 
 using namespace std;
@@ -24,7 +25,10 @@ public:
     string getTypeName() const;
     unsigned getPermeability() const;
     float getProbability() const;
+
     vector<shared_ptr<Cell>> const &getFilled() const;
+    void fillCell(shared_ptr<Cell>);
+    void refillCell(shared_ptr<Cell>);
 
     virtual void update() = 0;
     virtual void generate() = 0;

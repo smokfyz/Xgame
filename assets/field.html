@@ -17,7 +17,10 @@
         <div class="next-turn-info">
             <button onclick="OnNextTurn()" class="next-turn-btn">Next turn</button>
             <button onclick="OnNextTurn()" class="next-turn-btn">New Game</button>
-            <button onclick="OnNextTurn()" class="next-turn-btn">Change Unit Position</button>
+            <button onclick="OnNextTurn()" class="next-turn-btn">Change</button>
+            <button onclick="OnRecreate(document.getElementById('field-size').value)" class="next-turn-btn">Recreate</button>
+            <button onclick="OnClearField()" class="next-turn-btn">Clear</button>
+            <input id="field-size" type="text" placeholder="Field size">
         </div>
     </div>
 

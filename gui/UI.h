@@ -7,6 +7,7 @@
 
 #pragma once
 #include <AppCore/AppCore.h>
+#include <iostream>
 #include <map>
 #include <memory>
 
@@ -14,9 +15,13 @@ using ultralight::JSObject;
 using ultralight::JSArgs;
 using ultralight::JSFunction;
 using namespace ultralight;
+using namespace std;
 
 class UI : public WindowListener,
            public LoadListener {
+
+    shared_ptr<char[]> stringToChar(string);
+
 public:
     UI(Ref<Window> window);
     ~UI() override;
@@ -31,6 +36,8 @@ public:
     // Called by UI JavaScript
     void OnPickHex(const JSObject& obj, const JSArgs& args);
     void OnNextTurn(const JSObject& obj, const JSArgs& args);
+    void OnRecreate(const JSObject& obj, const JSArgs& args);
+    void OnClearField(const JSObject& obj, const JSArgs& args);
 
 protected:
     void CreateField();
@@ -42,7 +49,9 @@ protected:
     RefPtr<Overlay> overlay_;
 
     JSFunction createField;
-    JSFunction setUnit;
+    JSFunction renderImp;
+    JSFunction renderUnit;
+    JSFunction makeReachable;
 };
 
 

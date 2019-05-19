@@ -9,7 +9,10 @@
 
 using namespace std;
 
-Field::Field(unsigned s) : field_size(s) { fillContent(); }
+Field::Field(unsigned s) : field_size(s) {
+    imp_orch = make_unique<ImpedimentOrchestrator>();
+    fillContent();
+}
 
 unsigned Field::getSize() const { return field_size; }
 
@@ -18,7 +21,7 @@ void Field::fillContent() {
     for (auto i = 0; i < field_size; i++) {
         content.emplace_back();
         for (auto j = 0; j < field_size; j++)
-            content[i].push_back(move(make_shared<Cell>(j, i)));
+            content[i].push_back(move(make_shared<Cell>(Coord(j, i))));
     }
 
     for (auto i = 0; i < field_size; i++) {
@@ -51,7 +54,7 @@ void Field::fillContent() {
                         reachable.push_back(content[i][j - 1]);
                     }
                     reachable.push_back(content[i - 1][j]);
-                    if(j - 1 < field_size)
+                    if(j + 1 < field_size)
                         reachable.push_back(content[i][j + 1]);
                     continue;
                 }
@@ -82,6 +85,16 @@ void Field::fillContent() {
         }
     }
 
+}
+
+shared_ptr<Cell> Field::getCell(Coord c) { return content[c.getY()][c.getX()]; }
+
+vector<shared_ptr<Impediment>>& Field::getImps() { return imp_orch->getImps(); }
+
+ImpedimentOrchestrator& Field::getImpOrch() { return *imp_orch; }
+
+void Field::clear() {
+    imp_orch->clearAllImp();
 }
 
 vector<shared_ptr<Cell>> &Field::operator[](int idx) { return content[idx]; }

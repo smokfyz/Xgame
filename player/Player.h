@@ -20,15 +20,30 @@ class Player {
 
     vector<shared_ptr<Unit>> units;
 
+    vector<shared_ptr<Cell>> paths;
+    vector<unsigned> energy_loss;
+
 public:
     explicit Player(string &&, string &&);
     virtual ~Player() = default;
 
     unsigned getId();
     string getName();
+    string getColor();
 
-    void addUnit(shared_ptr<Unit> &);
-    bool hasUnit(shared_ptr<Unit> &);
+    void createUnit(Coord, string);
+    void addUnit(shared_ptr<Unit>);
+    bool hasUnit(shared_ptr<Unit>);
+    void placeUnit(Coord, shared_ptr<Unit>);
+    void resetUnits();
+
+    void findPaths(shared_ptr<Cell>&, unsigned, int);
+    vector<shared_ptr<Cell>> &getPaths();
+    unsigned getEnergyLoss(shared_ptr<Cell>);
+    bool hasPath(shared_ptr<Cell>);
+    void clearPaths();
+
+    vector<shared_ptr<Unit>> &getUnits();
 };
 
 

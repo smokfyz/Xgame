@@ -2,6 +2,7 @@ html,
 body {
     height: 97%;
     margin: 0;
+    min-width: 1350px;
 }
 
 .next-turn-info {
@@ -40,7 +41,10 @@ body {
 
 .field {
     display: inline-block;
+    white-space: nowrap;
     padding: 20px;
+    overflow: auto;
+    position: absolute;
 }
 
 .hexagon-row {
@@ -68,28 +72,177 @@ body {
     margin-right: -2px;
 }
 
-.hexagon-lvl-1 {
-    background-color: #ffa7a7;
+.hexagon-imp-river {
+    background-color: #1930ff;
 }
 
-.hexagon-lvl-2 {
-    background-color: #ff9292;
+.hexagon-imp-mountains {
+    background-color: #5c5c5c;
 }
 
-.hexagon-lvl-3 {
-    background-color: #ff7c7c;
+.hexagon-imp-forest {
+    background-color: #007c30;
 }
 
-.hexagon-lvl-4 {
-    background-color: #ff6464;
+.hexagon-imp-swamp {
+    background-color: #207c78;
 }
 
-.hexagon-lvl-5 {
-    background-color: #ff5050;
+.hexagon-imp-snow {
+    background-color: #f4f6ff;
 }
 
-.hexagon-lvl-6 {
-    background-color: #ff3e3e;
+.hexagon-imp-fog {
+    background-color: #a3a3a3;
+}
+
+.hexagon-imp-rain {
+    background-color: #589bff;
+}
+
+.hexagon-unit-archer {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-archer:after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg);
+    top: 0;
+    left: 7px;
+    width: 4px;
+    height: 20px;
+    border-radius: 25%;
+    background-color: green;
+}
+
+.hexagon-unit-tank {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-tank:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 20px;
+    border-left: solid 4px red;
+    border-right: solid 4px red;
+}
+
+.hexagon-unit-knight {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: solid 2px white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: black;
+}
+
+.hexagon-unit-knight:after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 4px;
+    height: 12px;
+    border-left: solid 4px red;
+    border-right: solid 4px red;
+}
+
+.hexagon-unit-king {
+    position: absolute;
+    left: 7.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: solid 2px white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: black;
+}
+
+.hexagon-unit-king:after {
+    content: '';
+    position: absolute;
+    transform: rotate(45deg);
+    top: -4px;
+    left: 6px;
+    width: 6px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.hexagon-unit-priest {
+    position: absolute;
+    left: 7.5px;
+    top: 5px;
+    z-index: 2;
+    display: block;
+    height: 10px;
+    width: 20px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-priest:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    width: 20px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: green;
+}
+
+.hexagon-unit-killer {
+    position: absolute;
+    left: 15.5px;
+    top: 0px;
+    z-index: 2;
+    display: block;
+    height: 20px;
+    width: 4px;
+    border: solid 2px white;
+    background-color: black;
+}
+
+.hexagon-unit-killer:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 25%;
+    background-color: red;
 }
 
 .hexagon-picked {
@@ -139,20 +292,9 @@ body {
     background-color: #b3b3b3;
 }
 
-.unit {
-    position: absolute;
-    left: 9.5px;
-    top: 2px;
-    z-index: 2;
-    display: block;
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    background-color: rgb(0, 0, 0);
-}
-
 .menu {
     width: 20%;
+    z-index: 100;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -163,6 +305,9 @@ body {
     border-left: solid 1px #dddddd;
     padding-top: 5px;
     margin-top: -1px;
+    position: fixed;
+    top: 40px;
+    right: 0;
 }
 
 .picked-hex-info, .pass-info {

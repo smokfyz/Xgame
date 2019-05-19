@@ -7,25 +7,36 @@
 
 #include <memory>
 #include <vector>
-#include "../unit/Unit.h"
+#include "../utility/Coord.h"
 
 using namespace std;
 
 class Impediment;
+class Unit;
 
 class Cell {
-    unsigned x, y;
+    Coord coord;
     shared_ptr<Unit> unit;
+    shared_ptr<Impediment> imp;
+
     vector<shared_ptr<Cell>> reachable;
 
 public:
-    explicit Cell(unsigned x, unsigned y);
+    explicit Cell(Coord);
 
-    unsigned getX() const;
-    unsigned getY() const;
+
+    unsigned getX();
+    unsigned getY();
 
     shared_ptr<Unit> getUnit();
     void setUnit(shared_ptr<Unit>);
+    void deleteUnit();
+    bool hasUnit();
+
+    shared_ptr<Impediment> getImp();
+    void setImp(shared_ptr<Impediment>);
+    void deleteImp();
+    bool hasImp();
 
     vector<shared_ptr<Cell>> &getReachable();
 };

@@ -16,33 +16,7 @@ Mountains::Mountains()  {
 }
 
 void Mountains::generate() {
-  /*  Game &game = Game::getGame();
-    Field &field = game.getField();
 
-    shared_ptr<Mountains> ptr = shared_ptr<Mountains>(this);
-
-    unsigned x, y;
-    do {
-        x = rand() % field.getSize();
-        y = rand() % field.getSize();
-    } while(field[x][y]->getImpediment());
-
-    filled.push_back(field[x][y]);
-    field[x][y]->setImpediment(ptr);
-
-    float prob;
-
-    vector<shared_ptr<Cell>> reachable = field[x][y]->getReachable();
-    for(shared_ptr<Cell> &cell : reachable) {
-        prob = float(rand() % 100) / 100;
-        std::cout << prob << " " << probability << std::endl;
-        //if(prob < probability && !cell->getImpediment()) {
-            //cell->setImpediment(ptr);
-            //filled.push_back(cell);
-            //for(shared_ptr<Cell> &cell2 : cell->getReachable())
-            //    reachable.push_back(cell2);
-        //}
-    }*/
 }
 
 Forest::Forest() {

@@ -35,7 +35,7 @@ public:
 };
 
 
-class Swamp : public Impediment {
+class Swamp : public StaticImpediment {
 
 public:
     Swamp();
